@@ -1,0 +1,18 @@
+
+on:
+  push:
+    branches:
+      - main
+      - 'test-ci/**'
+  workflow_dispatch: {}
+
+jobs:
+  carvel:
+    runs-on: ubuntu-latest
+    name: PAT dont work
+    steps:
+      - name: Setup Carvel using PAT
+        uses: carvel-dev/setup-action@v2.0.1
+        with:
+          token: ${{ secrets.MY_TOKEN }}
+
